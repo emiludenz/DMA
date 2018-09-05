@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
@@ -11,30 +11,30 @@
 \usepackage{caption}
 \usepackage{listings}  
 \usepackage{lineno}
-
+\usepackage{amssymb} 
 \captionsetup{justification = raggedright, singlelinecheck = false}
 
 \begin{document}
 
 \title{Uge 1 opgaver}
-\author{Jens Evald-Schelde, Jonathan Gabal Christiansen, Emil B. Henriksen}
+\author{Jens Evald-Schelde, Jonathan Gabal Christiansen og Emil B. Henriksen}
+
 \date{\today}
 \maketitle
-
+\renewcommand{\abstractname}{Abstract}
 \begin{abstract}
 	A review of this weeks exercises. Algorithms and pseudo code.
 \end{abstract}
 
-\chapter{Del 1}
-\section{a}
-Vi skal bestemme hvad algorithmen udspytter med forskellige parameter\newline
-Ved at gennemgå algoritmen med de givende parametre kan vi bestemme om den returnerer True eller False.
+\section{Del}
+Vi skal bestemme hvad algorithmen udspytter med forskellige parameter.\newline
+Ved at gennemgå algoritmen med de givende parametre, kan vi bestemme om den returnerer True eller False.
 
 \lstset{language=Python,numbers=left,stepnumber=1}
 \begin{lstlisting}[frame=single]
 exsist(A,n,x):
 	lo = 0 
-	hi = n-1 # 
+	hi = n-1 
 	while hi >= lo:
 		mid = floor((hi+lo)/2)
 		if x > A[mid]:  
@@ -46,28 +46,35 @@ exsist(A,n,x):
 	return False
 \end{lstlisting}
 
-Linje 1 indeholder funktionens navn, og de parameter den tager. A er en array, n er, muligvis, arrayens længde og x er en integer vi ønsker at tjekke om findes i den givende array. På linje 2 sættes variablen lo til 0, og på linje 3 bliver hi sat til lægnden af arrayen minus en. På 4 linje startes vores while loop, der køre så længe at konditionen er sand, at hi er højere eller lig lo.
+Linje 1 indeholder funktionens navn, og de parameter den tager. "A" er en array, "n" er arrayens længde og "x" er den integer vi leder efter i arrayen. På linje 2 sættes variablen "lo" til 0, og på linje 3 bliver "hi" sat til lægnden af arrayen minus en. På 4 linje startes vores while loop, der køre så længe at forholdet er sandt, hvilket er at "hi" er højere eller lig "lo". Hvis det ikke skulle være tilfældet returneres False
 \newline
 
-Linje 5 Variablen mid sættes til hi + lo divideret med 2, og så rundet ned, eg. 2.5 = 2, 2.9 = 2. Linje 6 bliver x tjekket om det er større end værdien som er i arrayen på index plads mid A[mid]. Hvis det er sandt, bliver lo sat til mid + 1 og loopet gentages med de nye værdier. Hvis x er mindre end A[mid] køres den anden condition, hi bliver sat til mid - 1, og loopet gentages.
-
-Hvis de to værdier skulle være lige store, vil det sidste forhold blive kørt, som returnere True på linje 11. Hvis loopet aldrig finder det ønskede element, eller at der ikke søges i hele længden af arrayen, vil der returneres false.
+Linje 5 variablen "mid" sættes til "hi" + "lo" divideret med 2, og så rundet ned, f.eks. floor(2.5) == 2, floor(2.9) == 2. På linje 6 bliver "x" tjekket om den er større end værdien som er på arrayens indeksplads svarende til værdien i variablen "mid". Hvis det er sandt, bliver "lo" sat til "mid + 1" og loopet gentages med de nye værdier. Hvis "x" er mindre end "A[mid]" køres else if blokken, "hi" bliver sat til "mid - 1", og loopet gentages.\newline
+Hvis de to værdier skulle være lige store, vil det sidste forhold blive kørt, som returnere True på linje 11. Hvis loopet aldrig finder det ønskede element, eller hvis der ikke søges igennem hele længden, vil der returneres False.
 \newline
 
-exists(A, 8, 17)\newline
-         returns true
-\section{b}
-exists(A, 8, 9)\newline
-        returns false
+\paragraph{a}
+exists(A, 8, 17)
+\newline
+        returns true
+\newline
 
-\section{c}
-exists(A, 4, 12)\newline
-        returns false 
+\paragraph{b}
+exists(A, 8, 9)
+\newline
+        returns false\newline
 
-\section{d}
+\paragraph{c}
+exists(A, 4, 12)
+\newline
+        returns false \newline
+
+
+\paragraph{d}
 
 mids værdier med parameterne (A,8,2)\newline
 \begin{tabular}{l | r}
+
 	loop & antal \\ \hline
 	\hline
 	0 &  3 \\ \hline
@@ -77,20 +84,20 @@ mids værdier med parameterne (A,8,2)\newline
 	\hline
 \end{tabular}
 
+\section{Del}
 
-\chapter{Del 2}
-Algoritmen er ment til at gennemkøre hele arrayen for at se om x er tilstede i arrayen
-parameteren n giver et startspunkt for algoritmen, men grundet algoritmens opbygning vil den også tjekke 'bag sig' for den værdi der checkes efter. En af grundende til at algoritmen fungere er at den allerede er sorteret, en usorteret array ville give et udfald der ikke er forudsigeligt, da den er baseret på en sorteret array af positive integers Z+
+Algoritmen er ment til at gennemkøre en array, for at se om "x" er tilstede i arrayen. Parameteren n giver et startspunkt for algoritmen, og er samtidigt længden på arrayen. Grundet algoritmens opbygning vil den også tjekke 'bag sig' hvis den værdi der tjekkes er større end det søgte. En af grundende til at algoritmen fungerer, er, at den allerede er sorteret fra mindste til højeste værdi. En usorteret array ville give et udfald der ikke er forudsigeligt eller efter hensigten, da den er baseret på en sorteret array af positive integers $\mathbb{Z^+}$.
 
-\chapter{Del 3}
-Hvis vi antager at A er en usorteret array, lad os antage en array B med følgende integers (stadigvæk positive integers) [20, 5, 1, 6, 9, 8, 17, 0]
+\section{Del}
 
-(a) Jeg kan ikke lige se et tilfælde hvor True ville blive returneret, som i en falsk positiv.
+Lad os antage at en array B med en længde på 8, der har følgende integers (stadigvæk kun positive integers) som elementer B = [20, 5, 1, 6, 9, 8, 17, 0]. \newline
 
-(b) Når funktionen exists() kaldes med parameterne (B, 4, 20) vil algoritmen starte med at give "mid" værdien 2, x der har værdien 2 sammenlignes nu med B[2] hvilket har værdien 1. Det føre til at lo sættes til 2, og loopet vil køre igennem endnu engang siden hi = 2 og lo = 2, mid sættes til 2 igen, hvilket gør at første if statement køres igen. Variablen lo incrementeres med 1 og er nu 3, og derved afbrydes while løkken siden lo er højere en hi, og funktionen returnerer False.
+(a) Vi kan ikke lige se et tilfælde hvor True ville blive returneret, uden at integeren findes i arrayen. En falsk positiv burde altså ikke være mulig.\newline
 
-\chapter{Del 4}
+(b) Når funktionen exists() kaldes med parameterne (B, 4, 20) vil algoritmen starte med at give "mid" værdien 2, "x" der har værdien 2 sammenlignes nu med "B[2]" hvilket har værdien 1. Det føre til at "lo" sættes til 2, og loopet vil køre igennem endnu engang siden "hi = 2" og "lo = 2", "mid" sættes til 2 igen, hvilket gør at første if statement køres igen. Variablen "lo" incrementeres med 1 og er nu 3, og derved afbrydes while løkken - siden "lo" er højere en "hi", og funktionen returnerer derfor False, selvom vi ved at 20 er gemt i B[0].
 
-Hvis n = 64, vil loopet kun køre en gang, før at vi får en indexerror. Siden vores array kun er 8 lang, vil den ikke kunne finde noget på pladsen A[31]. Det er undefined behavoir, men lad os sige at det er en array hvor alt udefineret er 0
+\section{Del}
+
+Hvis n = 64, vil loopet kun påbegynde den første omgang, før at vi får en index error. Siden vores array kun er 8 elementer lang, vil den ikke kunne finde noget på pladsen for A[31]. Der vil derfor være en uventet fejl som ikke bliver håndteret, og algoritmen kan ikke komme videre. 
 
 \end{document}
