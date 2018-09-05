@@ -17,7 +17,7 @@
 \begin{document}
 
 \title{Uge 1 opgaver}
-\author{Emil B Henriksen}
+\author{Jens Evald-Schelde, Jonathan Gabal Christiansen, Emil B. Henriksen}
 \date{\today}
 \maketitle
 
@@ -30,8 +30,7 @@
 Vi skal bestemme hvad algorithmen udspytter med forskellige parameter\newline
 Ved at gennemgå algoritmen med de givende parametre kan vi bestemme om den returnerer True eller False.
 
-\lstset{language=Python}
-\begin{linenumbers}
+\lstset{language=Python,numbers=left,stepnumber=1}
 \begin{lstlisting}[frame=single]
 exsist(A,n,x):
 	lo = 0 
@@ -46,14 +45,13 @@ exsist(A,n,x):
 			return true
 	return False
 \end{lstlisting}
-\end{linenumbers}
 
-Linje 2 indeholder funktionens navn, og de parameter den tager. A er en array, n er, muligvis, arrayens længde og x er en integer vi ønsker at tjekke om findes i den givende array. På linje 3 sættes variablen lo til 0, og på linje 4 bliver hi sat til lægnden af arrayen minus en. På 5 linje startes vores while loop, der køre så længe at konditionen er sand, at hi er højere eller lig lo.
+Linje 1 indeholder funktionens navn, og de parameter den tager. A er en array, n er, muligvis, arrayens længde og x er en integer vi ønsker at tjekke om findes i den givende array. På linje 2 sættes variablen lo til 0, og på linje 3 bliver hi sat til lægnden af arrayen minus en. På 4 linje startes vores while loop, der køre så længe at konditionen er sand, at hi er højere eller lig lo.
 \newline
 
-Linje 6 Variablen mid sættes til hi + lo divideret med 2, og så rundet ned, eg. 2.5 = 2, 2.9 = 2. Linje 7 bliver x tjekket om det er større end værdien som er i arrayen på index plads mid A[mid]. Hvis det er sandt, bliver lo sat til mid + 1 og loopet gentages med de nye værdier. Hvis x er mindre end A[mid] køres den anden condition, hi bliver sat til mid - 1, og loopet gentages.
+Linje 5 Variablen mid sættes til hi + lo divideret med 2, og så rundet ned, eg. 2.5 = 2, 2.9 = 2. Linje 6 bliver x tjekket om det er større end værdien som er i arrayen på index plads mid A[mid]. Hvis det er sandt, bliver lo sat til mid + 1 og loopet gentages med de nye værdier. Hvis x er mindre end A[mid] køres den anden condition, hi bliver sat til mid - 1, og loopet gentages.
 
-Hvis de to værdier skulle være lige store, vil det sidste forhold blive kørt, som returnere True på linje 12. Hvis loopet aldrig finder det ønskede element, eller at der ikke søges i hele længden af arrayen, vil der returneres false.
+Hvis de to værdier skulle være lige store, vil det sidste forhold blive kørt, som returnere True på linje 11. Hvis loopet aldrig finder det ønskede element, eller at der ikke søges i hele længden af arrayen, vil der returneres false.
 \newline
 
 exists(A, 8, 17)\newline
